@@ -5,4 +5,5 @@ remote_theme: pmarsceill/just-the-docs
 aux_links:
   "Fluxtion on github":
     - "//github.com/v12technology/fluxtion"
+heading_anchors: true
 
