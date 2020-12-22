@@ -4,7 +4,7 @@ has_children: true
 nav_order: 2
 ---
 
-Getting started
+#Introduction
 
 Random content here
 
