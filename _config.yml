@@ -2,3 +2,7 @@ theme: jekyll-theme-cayman
 title: Fluxtion docs
 description: Documentation about the Fluxtion event processor
 remote_theme: pmarsceill/just-the-docs
+aux_links:
+  "Fluxtion on github":
+    - "//github.com/v12technology/fluxtion"
+
