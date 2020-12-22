@@ -1,3 +1,9 @@
+---
+title: Index
+has_children: true
+nav_order: 1
+---
+
 ## Welcome to Fluxtion
 
 You can use the [editor on GitHub](https://github.com/v12technology/v12technology.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
