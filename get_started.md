@@ -3,7 +3,6 @@ title: Getting started
 has_children: true
 nav_order: 2
 ---
-
 # Introduction
 Using java and maven the goal is to listen to a stream of trade events and every second prints out the three most active stocks for the last five seconds. 
 ## Development process
