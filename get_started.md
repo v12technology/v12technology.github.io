@@ -32,9 +32,6 @@ To build a Fluxtion application requires three steps
             <properties>
                 <skipTests>true</skipTests>
             </properties>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
             <build>
                 <plugins>
                     <plugin>
