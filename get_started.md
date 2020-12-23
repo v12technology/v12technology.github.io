@@ -26,8 +26,7 @@ To build a Fluxtion application requires three steps
         <maven.compiler.source>15</maven.compiler.source>
         <maven.compiler.target>15</maven.compiler.target>
         <fluxtion.ver>2.10.3</fluxtion.ver>
-    </properties>
-    
+    </properties>  
     <profiles>
         <profile>
             <id>fluxtion-generate</id>
@@ -55,8 +54,6 @@ To build a Fluxtion application requires three steps
             </build>
         </profile>
     </profiles>
-
-
     <dependencies>
         <dependency>
             <groupId>com.fluxtion.extension</groupId>
