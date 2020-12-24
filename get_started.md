@@ -9,7 +9,7 @@ Using java and maven the goal is to listen to a stream of trade events and every
 ## Development process
 To build a Fluxtion application requires three steps
 1. Create a maven project including fluxtion plugin and dependencies. 
-1. Write processing logic using Fluxtion api's. Create tests to validate the logic
+1. Write processing logic using Fluxtion api's. 
 1. Integrate fluxtion generated processor into application
 ### Maven build
 
@@ -38,3 +38,17 @@ To build a Fluxtion application requires three steps
 ```
 
 ### Fluxtion processing
+Define the procesing using Fluxtin streaming api.
+
+```java
+public static void monitorTrades(SEPConfig cfg) {
+	groupBySum(Trade::getSymbol, Trade::getAmount)
+    	.sliding( seconds(1), 5)
+        .comparator(numberValComparator()).reverse()
+        .top(3)
+        .log();
+}
+```
+
+### Intgerate into Application
+
