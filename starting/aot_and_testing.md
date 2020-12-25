@@ -7,3 +7,5 @@ published: true
 ---
 
 # Ahead of time compilation
+
+The previous example uses im process generation of the Fluxtion event processor. 
