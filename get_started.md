@@ -77,12 +77,11 @@ Fluxtion provides a pipeline abstraction to feed events from a source into an ev
 
 ```java
 public static void main(String[] args) throws Exception {
-    //build event flow pipeline
     ManualEventSource<Trade> tradeSource = new ManualEventSource<>("trade-source");
     flow(tradeSource)
             .first(SepStage.generate(TradeMonitor::build))
             .start();
-    //send test data forever
+
     Random random = new Random();
     while (true) {
         tradeSource.publishToFlow(new Trade(ccyPairs[random.nextInt(ccyPairs.length)], random.nextInt(100) + 10));
