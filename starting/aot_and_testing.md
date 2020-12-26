@@ -13,7 +13,7 @@ Unit testing of any system is critical. The previous example creates the Fluxtio
 1.  A maven plugin that generates the processor ahead of time
 
 ## Development process
-Integrating unit testing into the developer workflow with the following steps:
+Integrate unit testing into the developer workflow with the following steps:
 1.  Create a test class that extends the [BaseSeInprocessTest.java](https://github.com/v12technology/fluxtion/blob/2.10.9/generator/src/test/java/com/fluxtion/generator/util/BaseSepInprocessTest.java)
 1.  Write a test that creates the event processor. Fire events into the geneated processor and validate outputs or state of nodes
 1.  Add fluxtion maven plugin to generate the event processor at build time. 
@@ -40,4 +40,3 @@ Add the fluxtion test jar to the project. Maven test-scoped dependencies are not
     </dependency>
 </dependencies>
 ```
-
