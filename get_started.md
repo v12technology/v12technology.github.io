@@ -91,7 +91,7 @@ public static void main(String[] args) throws Exception {
 }
 
 private static final String[] ccyPairs = new String[]{
-	"EURUSD", "EURCHF", "EURGBP", "GBPUSD", "USDCHF", "EURJPY", 
+    "EURUSD", "EURCHF", "EURGBP", "GBPUSD", "USDCHF", "EURJPY", 
     "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"
 };
 
