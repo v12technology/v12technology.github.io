@@ -27,13 +27,28 @@ To build a Fluxtion application requires three steps
         <maven.compiler.target>15</maven.compiler.target>
         <fluxtion.ver>2.10.3</fluxtion.ver>
     </properties>  
-    <dependencies>
-        <dependency>
-            <groupId>com.fluxtion.extension</groupId>
-            <artifactId>fluxtion-streaming-builder</artifactId>
-            <version>${fluxtion.ver}</version>
-        </dependency>
-    </dependencies>
+      <dependencies>
+          <dependency>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok</artifactId>
+              <version>1.18.12</version>
+          </dependency>
+          <dependency>
+              <groupId>com.fluxtion.integration</groupId>
+              <artifactId>fluxtion-integration</artifactId>
+              <version>${fluxtion.ver}</version>
+          </dependency>
+          <dependency>
+              <groupId>org.apache.logging.log4j</groupId>
+              <artifactId>log4j-api</artifactId>
+              <version>2.13.3</version>
+          </dependency>
+          <dependency>
+              <groupId>org.apache.logging.log4j</groupId>
+              <artifactId>log4j-core</artifactId>
+              <version>2.13.3</version>
+          </dependency>
+      </dependencies>
 </project>
 ```
 
