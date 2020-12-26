@@ -52,7 +52,7 @@ Building a Fluxtion application requires three steps
 </project>
 ```
 
-### Fluxtion strem processing logic
+### Fluxtion stream processing logic
 Define the procesing using Fluxtin streaming api. 
 
 ```java
@@ -101,3 +101,5 @@ private static final String[] ccyPairs = new String[]{
 };
 
 ```
+
+
