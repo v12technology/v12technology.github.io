@@ -99,10 +99,9 @@ private static final String[] ccyPairs = new String[]{
     "EURUSD", "EURCHF", "EURGBP", "GBPUSD", "USDCHF", "EURJPY", 
     "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"
 };
-
 ```
 -  line 1 creates a programmatic  injection point to push events into the pipeline
 -  line 3 initialises a flow with the trade injector as an event source
 -  line 4 adds fluxtion event processor as a pipeline stage
 -  line 5 starts the pipeline,  resulting in the building of the processing logic.
-
+-  line 7-17 generate random trade events and publish to pipeline for processing.
