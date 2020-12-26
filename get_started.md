@@ -52,7 +52,7 @@ Building a Fluxtion application requires three steps
 </project>
 ```
 
-### Fluxtion processing
+### Fluxtion strem processing logic
 Define the procesing using Fluxtin streaming api. 
 
 ```java
