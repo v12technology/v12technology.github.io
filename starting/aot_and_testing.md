@@ -31,7 +31,7 @@ Add the fluxtion test jar to the project. Maven test-scoped dependencies are not
     <version>${fluxtion.ver}</version>
 </dependency>
 <dependency>
-  <groupId>com.fluxtion.extension</groupId>
+    <groupId>com.fluxtion.extension</groupId>
     <artifactId>fluxtion-streaming-builder</artifactId>
     <type>test-jar</type>
     <scope>test</scope>
