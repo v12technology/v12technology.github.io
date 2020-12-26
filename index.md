@@ -2,12 +2,13 @@
 title: Home
 has_children: false
 nav_order: 1
+published: true
 ---
 
 # Introduction
-Welcome to Fluxtion thanks for coming, hope you enjoy reading and exploring :) 
+Welcome to Fluxtion streaming thanks for coming, hope you enjoy exploring :) 
 
-Fluxtion builds event processing applications that handle infinite streams of data. Write simple clean java code to create realtime applications, all the complex heavy lifting is taken care of by Fluxtion. Programs are quick to build, test, deploy and debug.
+Fluxtion streaming builds event processing applications that handle infinite streams of data. Write simple clean java code to create realtime applications, all the complex heavy lifting is taken care of by Fluxtion. Programs are quick to build, test, deploy and debug.
 
 Fluxtion focuses on the processing logic of event streans, independent of messaging system. Areas of good fit include:
 
@@ -19,7 +20,3 @@ Fluxtion focuses on the processing logic of event streans, independent of messag
 Fluxtion provides a familiar stream like api for the developer to work with. Data streams can be merged, filtered, aggregated, joined, grouped and enriched. Windowing of data is fully supported.
 
 A full set of tools for debugging, tracing, auding and visualisation are provided to reduce development and support costs.
-
-
-
-
