@@ -24,7 +24,7 @@ Add the fluxtion test jar to the project. Maven test-scoped dependencies are not
 
 ```xml
 <dependency>
-	<groupId>com.fluxtion</groupId>
+    <groupId>com.fluxtion</groupId>
     <artifactId>generator</artifactId>
     <type>test-jar</type>
     <scope>test</scope>
