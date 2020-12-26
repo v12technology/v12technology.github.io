@@ -20,7 +20,7 @@ Integrating unit testing into the developer workflow with the following steps:
 1.  Update tests to use the build time generated event processor 
 
 ### First unit test
-Add the fluxtion test jar to the project. Maven test-scoped dependemcies are not transitive so both artefacts are explicitly declared.
+Add the fluxtion test jar to the project. Maven test-scoped dependencies are not transitive so both artefacts are explicitly declared.
 
 ```xml
 <dependency>
