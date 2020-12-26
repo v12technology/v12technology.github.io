@@ -51,10 +51,8 @@ public static void build(SEPConfig cfg) {
 
 @Data
 public static class Trade {
-
     private String symbol;
     private double amount;
-
 }
 ```
 
@@ -77,5 +75,12 @@ public static void main(String[] args) throws Exception {
     }
 }
 
+private static final String[] ccyPairs = new String[]{
+	"EURUSD", "EURCHF", "EURGBP", "GBPUSD", "USDCHF", "EURJPY", 
+    "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"
+};
+
 ```
+
+
 
