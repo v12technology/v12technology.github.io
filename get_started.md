@@ -73,7 +73,7 @@ public static class Trade {
 
 - Line 2 creates an aggregate sum of the trade amount, grouped by symbol name. 
 - Line 3 defines a sliding window, publishing every second with a total window size of 5 seconds
-- Line 4 applies a comparator function to sort and then reverse the cumulative sum
+- Line 4 applies a comparator function to the cumulative sum sort and then reverses the sort order.
 - Line 5 Filters the top 3 trades by volume
 - Line 6 logs the result of top every publish
 
