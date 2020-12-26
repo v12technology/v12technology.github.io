@@ -22,7 +22,8 @@ Integrating unit testing into the developer workflow with the following steps:
 ### First unit test
 Add the fluxtion test jar to the project. Maven test-scoped dependemcies are not transitive so both artefacts are explicitly declared.
 
-'''xml
+
+```xml
 <dependency>
 	<groupId>com.fluxtion</groupId>
     <artifactId>generator</artifactId>
@@ -37,5 +38,5 @@ Add the fluxtion test jar to the project. Maven test-scoped dependemcies are not
     <scope>test</scope>
     <version>${fluxtion.ver}</version>
 </dependency>
-'''
+```
 
