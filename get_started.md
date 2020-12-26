@@ -79,7 +79,7 @@ public static class Trade {
 
 ### Intgerate into Application
 
-Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. in this case a manually injetcing event source is used to feed Trade events into the pipeine. The first processing stage is the event processor defined above.
+Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. In this case a manually injetcing event source is used to feed Trade events into the pipeine.
 
 ```java
 public static void main(String[] args) throws Exception {
