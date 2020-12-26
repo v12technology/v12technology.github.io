@@ -41,14 +41,41 @@ To build a Fluxtion application requires three steps
 Define the procesing using Fluxtin streaming api.
 
 ```java
-public static void monitorTrades(SEPConfig cfg) {
-	groupBySum(Trade::getSymbol, Trade::getAmount)
-    	.sliding( seconds(1), 5)
-        .comparator(numberValComparator()).reverse()
-        .top(3)
-        .log();
+public static void build(SEPConfig cfg) {
+    groupBySum(Trade::getSymbol, Trade::getAmount)
+            .sliding(seconds(1), 5)
+            .comparator(numberValComparator()).reverse()
+            .top(3)
+            .log();
+}
+
+@Data
+public static class Trade {
+
+    private String symbol;
+    private double amount;
+
 }
 ```
 
 ### Intgerate into Application
+
+Fluxtion provides a pipeline abstraction to feed events from a source into an event processor
+
+```java
+public static void main(String[] args) throws Exception {
+    //build event flow pipeline
+    ManualEventSource<Trade> tradeSource = new ManualEventSource<>("trade-source");
+    flow(tradeSource)
+            .first(SepStage.generate(TradeMonitor::build))
+            .start();
+    //send test data forever
+    Random random = new Random();
+    while (true) {
+        tradeSource.publishToFlow(new Trade(ccyPairs[random.nextInt(ccyPairs.length)], random.nextInt(100) + 10));
+        Thread.sleep(random.nextInt(10) + 10);
+    }
+}
+
+```
 
