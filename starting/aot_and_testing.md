@@ -9,8 +9,8 @@ published: true
 # Introduction
 
 Unit testing of any system is critical. The previous example creates the Fluxtion processor at runtime, but applies no tests. Fluxtion provides two sets of tools that make testing at build time easier.
-1.  Junit utilities for generating and testing event processors 
-1.  A maven plugin that generates the processor ahead of time
+1.  Junit utilities for generating and testing event processors.
+1.  A maven plugin that generates an event processor as part of the build. 
 
 ## Development process
 Integrate unit testing into the developer workflow with the following steps:
