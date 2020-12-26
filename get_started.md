@@ -77,9 +77,9 @@ public static class Trade {
 - Line 5 Filters the top 3 trades by volume
 - Line 6 logs the result of top every publish
 
-### Intgerate into Application
+### Application integration
 
-Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. In this case a manually injetcing event source is used to feed Trade events into the pipeine.
+Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. In this case a manually injecting event source is used to feed Trade events into the pipeine.
 
 ```java
 public static void main(String[] args) throws Exception {
