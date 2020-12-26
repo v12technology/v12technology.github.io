@@ -26,13 +26,13 @@ Add the fluxtion test jar to the project. Maven test-scoped dependencies are not
 <dependencies>
     <dependency>
         <groupId>com.fluxtion</groupId>
-        <artifactId>generator</artifactId>
+        <artifactId>generator</artifactId> 
         <type>test-jar</type>
         <scope>test</scope>
         <version>${fluxtion.ver}</version>
     </dependency>
     <dependency>
-        <groupId>com.fluxtion.extension</groupId>
+        <groupId>com.fluxtion.extension</groupId> The unit test can
         <artifactId>fluxtion-streaming-builder</artifactId>
         <type>test-jar</type>
         <scope>test</scope>
@@ -40,3 +40,5 @@ Add the fluxtion test jar to the project. Maven test-scoped dependencies are not
     </dependency>
 </dependencies>
 ```
+
+The unit test can reference the generated event processor within the test case, pushing events and accessing nodes via an id. The id of the node is assigned during the build process automatically, this can he overriden by the developer with .id("name") at build time.
