@@ -53,7 +53,13 @@ To build a Fluxtion application requires three steps
 ```
 
 ### Fluxtion processing
-Define the procesing using Fluxtin streaming api.
+Define the procesing using Fluxtin streaming api. 
+- Line 2 creates an aggregate sum of the trade amount, grouped by symbol name. 
+- Line 3 defines a sliding window, publishing every second with a total window size of 5 seconds
+- Line 4 applies a comparator function to sort and then reverse the cumulative sum
+- Line 5 Filters the top 3 trades by volume for the last 5 seconds
+- Line 6 logs top 3 every update publish
+
 
 ```java
 public static void build(SEPConfig cfg) {
@@ -73,7 +79,7 @@ public static class Trade {
 
 ### Intgerate into Application
 
-Fluxtion provides a pipeline abstraction to feed events from a source into an event processor
+Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. in this case a manually injetcing event source is used to feed Trade events into the pipeine. The forst processing stage is the event processor deifned above.
 
 ```java
 public static void main(String[] args) throws Exception {
