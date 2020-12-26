@@ -12,4 +12,9 @@ Unit testing of any system is critical. The previous example creates the Fluxtio
 -  Junit utilities for generating and testing event processors 
 -  A maven plugin that generates the processor ahead of time
 ## Testing
-Fluxtion provides a [utility class](https://github.com/v12technology/fluxtion/blob/2.10.9/generator/src/test/java/com/fluxtion/generator/util/BaseSepInprocessTest.java "BaseSeInprocessTest") that simplifies unit testing for event processors  
+Fluxtion provides a [utility class](https://github.com/v12technology/fluxtion/blob/2.10.9/generator/src/test/java/com/fluxtion/generator/util/BaseSepInprocessTest.java "BaseSeInprocessTest.java") that simplifies unit testing for event processors, providing:
+-  Generate fluxtion event processor in the test phase
+-  Re-use or rebuild flag
+-  Set fqn of output
+-  Data driven clock for time based testing
+
