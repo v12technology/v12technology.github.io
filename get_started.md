@@ -5,12 +5,12 @@ nav_order: 2
 published: true
 ---
 # Introduction
-Using java and maven the goal is to listen to a stream of trade events and every second prints out the three most active stocks for the last five seconds. 
+This example processes a stream of trade events, every second printing out the three most active stocks for the previous five seconds. 
 ## Development process
 Building a Fluxtion application requires three steps
-1. Create a maven project including fluxtion dependencies. 
+1. Create a maven project with the required dependencies. 
 1. Write processing logic using Fluxtion api's. 
-1. Integrate fluxtion generated processor into application
+1. Integrate fluxtion generated processor into an application
 ### Maven build
 
 ```xml
@@ -101,6 +101,3 @@ private static final String[] ccyPairs = new String[]{
 };
 
 ```
-
-
-
