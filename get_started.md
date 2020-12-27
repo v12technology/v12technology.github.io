@@ -71,11 +71,11 @@ public static class Trade {
 }
 ```
 
-- Line 2 creates an aggregate sum of the trade amount, grouped by symbol name. 
+- Line 2 creates an aggregate sum of the trade amount, grouped by symbol name
 - Line 3 defines a sliding window, publishing every second with a total window size of 5 seconds
-- Line 4 applies a comparator function to the cumulative sum sort and then reverses the sort order.
-- Line 5 Filters the top 3 trades by volume
-- Line 6 logs the result of top every publish
+- Line 4 applies a comparator function to the cumulative sum and then reverses the sort order
+- Line 5 Filters the list of trades to the top 3 by volume
+- Line 6 logs the result of filtered list every publish
 
 ### Application integration
 
@@ -100,8 +100,8 @@ private static final String[] ccyPairs = new String[]{
     "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"
 };
 ```
--  line 1 creates a programmatic  injection point to push events into the pipeline
+-  line 1 creates a trade injector that pushes events into a pipeline programmatically
 -  line 3 initialises a flow with the trade injector as an event source
 -  line 4 adds fluxtion event processor as a pipeline stage
--  line 5 starts the pipeline,  resulting in the building of the processing logic.
--  line 7-17 generate random trade events and publish to pipeline for processing.
+-  line 5 starts the pipeline,  resulting in the building of the processing logic
+-  line 7-17 generate random trade events and publish to pipeline for processing
