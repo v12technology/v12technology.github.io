@@ -103,5 +103,5 @@ private static final String[] ccyPairs = new String[]{
 -  line 1 creates a trade injector that pushes events into a pipeline programmatically
 -  line 3 initialises a flow with the trade injector as an event source
 -  line 4 adds fluxtion event processor as a pipeline stage
--  line 5 starts the pipeline,  resulting in the building of the processing logic
+-  line 5 starts the pipeline, builds the processing logic during initialisation phase
 -  line 7-17 generate random trade events and publish to pipeline for processing
