@@ -11,7 +11,8 @@ Building a Fluxtion application requires three steps
 1. Create a maven project with the required dependencies. 
 1. Write processing logic using Fluxtion api's. 
 1. Integrate fluxtion generated processor into an application
-### Maven build
+
+### 1. Maven build
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -52,7 +53,7 @@ Building a Fluxtion application requires three steps
 </project>
 ```
 
-### Fluxtion stream processing logic
+### 2. Fluxtion stream processing logic
 Define the procesing using Fluxtin streaming api. 
 
 ```java
@@ -77,7 +78,7 @@ public static class Trade {
 - Line 5 Filters the list of trades to the top 3 by volume
 - Line 6 logs the result of filtered list every publish
 
-### Application integration
+### 3. Application integration
 
 Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. In this case a manually injecting event source is used to feed Trade events into the pipeine.
 
