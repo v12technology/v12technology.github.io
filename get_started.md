@@ -58,17 +58,31 @@ Define the procesing using Fluxtin streaming api.
 
 ```java
 public static void build(SEPConfig cfg) {
-    groupBySum(Trade::getSymbol, Trade::getAmount)
-            .sliding(seconds(1), 5)
-            .comparator(numberValComparator()).reverse()
-            .top(3)
-            .log();
+  groupBySum(Trade::getSymbol, Trade::getAmount)
+    .sliding(seconds(1), 5)
+    .comparator(numberValComparator()).reverse()
+    .top(3)
+    .map(TradeMonitor::formatTradeList)
+    .log();
+}
+
+private static String formatTradeList(List<Tuple<String, Number>> trades){
+  StringBuilder sb = new StringBuilder("Most active ccy pairs in past 5 seconds:");
+  for (int i = 0; i < trades.size(); i++) {
+    Tuple<String, Number> result = trades.get(i);
+    sb.append(String.format("\n\t%2d. %5s - %d trades", i + 1, result.getKey(), result.getValue().intValue()));
+  }
+  return sb.toString();
 }
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public static class Trade {
-    private String symbol;
-    private double amount;
+
+  private String symbol;
+  private double amount;
+
 }
 ```
 
@@ -84,22 +98,12 @@ Fluxtion provides a pipeline abstraction to feed events from a source into an ev
 
 ```java
 public static void main(String[] args) throws Exception {
-    ManualEventSource<Trade> tradeSource = new ManualEventSource<>("trade-source");
-    flow(tradeSource)
-            .first(SepStage.generate(TradeMonitor::build))
-            .start();
-
-    Random random = new Random();
-    while (true) {
-        tradeSource.publishToFlow(new Trade(ccyPairs[random.nextInt(ccyPairs.length)], random.nextInt(100) + 10));
-        Thread.sleep(random.nextInt(10) + 10);
-    }
+  ManualEventSource<Trade> tradeInjector = new ManualEventSource<>("trade-source");
+  flow(tradeInjector)
+    .sep(TradeMonitor::build)
+    .start();
+  TradeGenerator.publishTestData(tradeInjector);
 }
-
-private static final String[] ccyPairs = new String[]{
-    "EURUSD", "EURCHF", "EURGBP", "GBPUSD", "USDCHF", "EURJPY", 
-    "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"
-};
 ```
 -  line 1 creates a trade injector that pushes events into a pipeline programmatically
 -  line 3 initialises a flow with the trade injector as an event source
