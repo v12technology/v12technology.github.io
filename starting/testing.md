@@ -41,21 +41,21 @@ Add the fluxtion test jar to the project and Junit 4 dependency.
 The app is refactored to separate consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a node in the event processor using the id in a test, with `getField("name")`.
 ```java
 public class TradeMonitor {
-    
-    public static void main(String[] args) throws Exception {
-        publishTestData(reuseOrBuild(TradeMonitor::build));
-    }
 
-    public static void build(SEPConfig cfg) {
-        groupBySum(Trade::getSymbol, Trade::getAmount)
-            .sliding(seconds(1), 5)
-            .comparator(numberValComparator()).reverse()
-            .top(3).id("top3")
-            .map(TradeMonitor::formatTradeList)
-            .log();
-    }
-  ...
+  public static void main(String[] args) throws Exception {
+    publishTestData(reuseOrBuild(TradeMonitor::build));
   }
+
+  public static void build(SEPConfig cfg) {
+    groupBySum(Trade::getSymbol, Trade::getAmount)
+      .sliding(seconds(1), 5)
+      .comparator(numberValComparator()).reverse()
+      .top(3).id("top3")
+      .map(TradeMonitor::formatTradeList)
+      .log();
+  }
+
+}
 ```
 
 ### 3. Write Junit test case
