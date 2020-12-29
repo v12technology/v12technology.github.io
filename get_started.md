@@ -100,12 +100,19 @@ Define the procesing using Fluxtin streaming api.
 Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. In this case a manually injecting event source is used to feed Trade events into the pipeine.
 
 ```java
-public static void main(String[] args) throws Exception {
-  ManualEventSource<Trade> tradeInjector = new ManualEventSource<>("trade-source");
-  flow(tradeInjector)
-    .sep(TradeMonitor::build)
-    .start();
-  TradeGenerator.publishTestData(tradeInjector);
+public class TradeGenerator {
+
+    private static final String[] ccyPairs = new String[]{"EURUSD", "EURCHF", "EURGBP", "GBPUSD",
+        "USDCHF", "EURJPY", "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"};
+
+    static void publishTestData(StaticEventProcessor processor) throws InterruptedException {
+        Random random = new Random();
+        while (true) {
+            processor.onEvent(new TradeMonitor.Trade(ccyPairs[random.nextInt(ccyPairs.length)], random.nextInt(100) + 10));
+            Thread.sleep(random.nextInt(10) + 10);
+        }
+    }
+
 }
 ```
 -  line 1 creates a trade injector that pushes events into a pipeline programmatically
