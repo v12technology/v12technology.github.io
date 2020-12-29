@@ -38,7 +38,7 @@ Add the fluxtion test jar to the project and Junit 4 dependency.
 ```
 
 ### 2. Introduce builder method
-The app is refactored to separate consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a node in the event processor using the id in a test, with `getField("name")`.
+The app is refactored to separate consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a processor node by id, with `getField("name")`.
 ```java
 public class TradeMonitor {
 
@@ -59,11 +59,11 @@ public class TradeMonitor {
 ```
 
 ### 3. Write Junit test case
-A complete unit test is shown below that validates the behaviour of the event processor. The processor is constructed in the test by supplying the builder method to the super class with `sep(TradeMonitor::build)`
+A complete unit test is shown below that validates the behaviour of the event processor. The processor is constructed by supplying the builder method to the test super class with `sep(TradeMonitor::build)`
 
-Events are sent to constructed event processor with the onEvent method e.g.`onEvent(new Trade("EURUSD", 5_000))`. A data driven clock can be adjusted in the test using the tick method to simulate the passing of time.
+Events are sent to the processor under test with the onEvent method e.g.`onEvent(new Trade("EURUSD", 5_000))`. A data driven clock can be adjusted in the test using the `tick("new time")` method to simulate the passing of time.
 
-The "top3" node can be accessed using the id set in the bulder method, with: `WrappedList<Tuple<String, Number>> top3 = getField("top3")`. Normal Junit asserts can be used to validate the expected beb=havior of the processor by asseting the state of a node after processing events or changing the time.
+The "top3" node can be accessed using the id set in the bulder method, with: `WrappedList<Tuple<String, Number>> top3 = getField("top3")`. Normal Junit asserts can be used to validate the expected behavior of the processor by assering the state of a node.
 
 ```java
 public class TradeMonitorTest extends BaseSepInprocessTest {
