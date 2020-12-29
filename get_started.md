@@ -18,38 +18,38 @@ Building a Fluxtion application requires three steps
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.fluxtion.tutorial</groupId>
-    <artifactId>quickstart</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>com.fluxtion.example</groupId>
+    <artifactId>quickstart.lesson-1</artifactId>
+    <version>2.10.10-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>fluxtion :: quickstart :: lesson-1</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
-        <fluxtion.ver>2.10.3</fluxtion.ver>
-    </properties>  
-      <dependencies>
-          <dependency>
-              <groupId>org.projectlombok</groupId>
-              <artifactId>lombok</artifactId>
-              <version>1.18.12</version>
-          </dependency>
-          <dependency>
-              <groupId>com.fluxtion.integration</groupId>
-              <artifactId>fluxtion-integration</artifactId>
-              <version>${fluxtion.ver}</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.logging.log4j</groupId>
-              <artifactId>log4j-api</artifactId>
-              <version>2.13.3</version>
-          </dependency>
-          <dependency>
-              <groupId>org.apache.logging.log4j</groupId>
-              <artifactId>log4j-core</artifactId>
-              <version>2.13.3</version>
-          </dependency>
-      </dependencies>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fluxtion.integration</groupId>
+            <artifactId>fluxtion-integration</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+    </dependencies>
 </project>
 ```
 
