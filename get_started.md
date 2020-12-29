@@ -73,7 +73,7 @@ public static String formatTradeList(List<Tuple<String, Number>> trades) {
   StringBuilder sb = new StringBuilder("Most active ccy pairs in past 5 seconds:");
   for (int i = 0; i < trades.size(); i++) {
     Tuple<String, Number> result = trades.get(i);
-    sb.append(String.format("\n\t%2d. %5s - %d trades", i + 1, result.getKey(), result.getValue().intValue()));
+    sb.append(String.format("\n\t%2d. %5s - %.0f trades", i + 1, result.getKey(), result.getValue()));
   }
   return sb.toString();
 }
@@ -109,8 +109,9 @@ public class TradeGenerator {
 
     static void publishTestData(StaticEventProcessor processor) throws InterruptedException {
         Random random = new Random();
+        int numberPairs = ccyPairs.length;
         while (true) {
-            processor.onEvent(new TradeMonitor.Trade(ccyPairs[random.nextInt(ccyPairs.length)], random.nextInt(100) + 10));
+            processor.onEvent(new Trade(ccyPairs[random.nextInt(numberPairs)], random.nextInt(100) + 10));
             Thread.sleep(random.nextInt(10) + 10);
         }
     }
