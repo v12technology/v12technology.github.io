@@ -14,7 +14,7 @@ Unit testing of any system is critical. The previous example creates an event pr
 Fluxtion integrates unit testing into the developer workflow as follows:
 1. Add maven dependencies for testing and create a test class that extends the [BaseSeInprocessTest.java](https://github.com/v12technology/fluxtion/blob/2.10.9/generator/src/test/java/com/fluxtion/generator/util/BaseSepInprocessTest.java).
 1. Extract processor construction into a separate builder method for use in a unit test.   
-1. Write a test case that creates the event processor using the builder method within the test. Fire events into the geneated processor and validate outputs or state of nodes using asserts/expectations. 
+1. Write a test case that uses the builder method to create an event processor for testing. Send events into the generated processor and validate outputs or state of nodes using asserts/expectations. 
 
 ### 1. Maven dependencies
 Add the fluxtion test jar to the project and Junit 4 dependency.
@@ -38,7 +38,7 @@ Add the fluxtion test jar to the project and Junit 4 dependency.
 ```
 
 ### 2. Introduce builder method
-The app is refactored to separate consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a processor node by id, with `getField("name")`.
+The app is refactored to separate processor consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a processor node by id, with `getField("name")`.
 ```java
 public class TradeMonitor {
 
