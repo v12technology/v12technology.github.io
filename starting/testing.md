@@ -38,7 +38,7 @@ Add the fluxtion test jar to the project and Junit 4 dependency.
 ```
 
 ### 2. Introduce builder method
-The app is refactored to separate consruction logic into a builder method. To help testing a node can be given unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a node in the event processor using the id in a test.
+The app is refactored to separate consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a node in the event processor using the id in a test, with `getField("name")`.
 ```java
 public class TradeMonitor {
     
