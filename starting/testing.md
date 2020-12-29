@@ -117,7 +117,7 @@ public class TradeMonitorTest extends BaseSepInprocessTest {
         assertThat(top3.size(), is(3));
         assertThat(sysOut.asString().trim(), is(""));
 
-        //advance to new bucket will removes first EURUSD trade and triggers resort
+        //advance to new bucket will removes first EURUSD trade and triggering a new top 3
         sysOut.clear();
         tick(6000);
         top3 = getField("top3");
