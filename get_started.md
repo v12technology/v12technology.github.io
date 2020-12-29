@@ -99,7 +99,7 @@ Define the procesing using Fluxtin streaming api.
 
 ### 3. Application integration
 
-An application must feed events into a Fluxtion generated event processor for processing. All Fluxtion event processors implement the [StaticEventProcessor](https://github.com/v12technology/fluxtion/blob/develop/api/src/main/java/com/fluxtion/api/StaticEventProcessor.java). The application instantiates the event processor and invokes StaticEVentProcessor#onEvent to post an event
+An application must feed events into a Fluxtion generated event processor for processing. All Fluxtion event processors implement the [StaticEventProcessor](https://github.com/v12technology/fluxtion/blob/develop/api/src/main/java/com/fluxtion/api/StaticEventProcessor.java). The application instantiates the event processor and invokes `processor.onEvent(event)` to post an event
 
 ```java
 public class TradeGenerator {
