@@ -5,7 +5,7 @@ nav_order: 2
 published: true
 ---
 # Introduction
-This example processes a stream of trade events, every second printing out the three most active stocks for the previous five seconds. An understanding of Java and maven is required, the example is [here](https://github.com/v12technology/fluxtion/tree/2.10.11/examples/quickstart/lesson-1).
+This example processes a stream of trade events, every second printing out the three most active stocks for the previous five seconds. An understanding of Java and maven is required, the example is located [here](https://github.com/v12technology/fluxtion/tree/2.10.11/examples/quickstart/lesson-1).
 ## Development process
 Building a Fluxtion application requires three steps
 1. Create a maven project with the required dependencies. 
