@@ -102,17 +102,17 @@ An application must feed events into a Fluxtion generated event processor for pr
 ```java
 public class TradeGenerator {
 
-    private static final String[] ccyPairs = new String[]{"EURUSD", "EURCHF", "EURGBP", "GBPUSD",
-        "USDCHF", "EURJPY", "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"};
+  private static final String[] ccyPairs = new String[]{"EURUSD", "EURCHF", "EURGBP", "GBPUSD",
+                             "USDCHF", "EURJPY", "USDJPY", "USDMXN", "GBPCHF", "EURNOK", "EURSEK"};
 
-    static void publishTestData(StaticEventProcessor processor) throws InterruptedException {
-        Random random = new Random();
-        int numberPairs = ccyPairs.length;
-        while (true) {
-            processor.onEvent(new Trade(ccyPairs[random.nextInt(numberPairs)], random.nextInt(100) + 10));
-            Thread.sleep(random.nextInt(10) + 10);
-        }
+  static void publishTestData(StaticEventProcessor processor) throws InterruptedException {
+    Random random = new Random();
+    int numberPairs = ccyPairs.length;
+    while (true) {
+      processor.onEvent(new Trade(ccyPairs[random.nextInt(numberPairs)], random.nextInt(100) + 10));
+      Thread.sleep(random.nextInt(10) + 10);
     }
+  }
 }
 ```
 The utility method above generates random currency pair trade events and posts them to the supplied event processor.
