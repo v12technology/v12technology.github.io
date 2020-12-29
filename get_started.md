@@ -57,36 +57,36 @@ Building a Fluxtion application requires three steps
 Define the procesing using Fluxtin streaming api. 
 
 ```java
-   public static void main(String[] args) throws Exception {
-        StaticEventProcessor processor = reuseOrBuild(c -> {
-            groupBySum(Trade::getSymbol, Trade::getAmount)
-                .sliding(seconds(1), 5)
-                .comparator(numberValComparator()).reverse()
-                .top(3)
-                .map(TradeMonitor::formatTradeList)
-                .log();
-        });
-        TradeGenerator.publishTestData(processor);
-    }
+public static void main(String[] args) throws Exception {
+  StaticEventProcessor processor = reuseOrBuild(c -> {
+    groupBySum(Trade::getSymbol, Trade::getAmount)
+      .sliding(seconds(1), 5)
+      .comparator(numberValComparator()).reverse()
+      .top(3)
+      .map(TradeMonitor::formatTradeList)
+      .log();
+  });
+  TradeGenerator.publishTestData(processor);
+}
 
-    public static String formatTradeList(List<Tuple<String, Number>> trades) {
-        StringBuilder sb = new StringBuilder("Most active ccy pairs in past 5 seconds:");
-        for (int i = 0; i < trades.size(); i++) {
-            Tuple<String, Number> result = trades.get(i);
-            sb.append(String.format("\n\t%2d. %5s - %d trades", i + 1, result.getKey(), result.getValue().intValue()));
-        }
-        return sb.toString();
-    }
+public static String formatTradeList(List<Tuple<String, Number>> trades) {
+  StringBuilder sb = new StringBuilder("Most active ccy pairs in past 5 seconds:");
+  for (int i = 0; i < trades.size(); i++) {
+    Tuple<String, Number> result = trades.get(i);
+    sb.append(String.format("\n\t%2d. %5s - %d trades", i + 1, result.getKey(), result.getValue().intValue()));
+  }
+  return sb.toString();
+}
 
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    public static class Trade {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public static class Trade {
 
-        private String symbol;
-        private double amount;
+  private String symbol;
+  private double amount;
 
-    }
+}
 ```
 
 - Line 2 Creates an event processor if one cannot be found on the class path for this builder
