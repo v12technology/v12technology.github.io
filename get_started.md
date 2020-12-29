@@ -119,7 +119,7 @@ public class TradeGenerator {
 ```
 The utility method above generates random currency pair trade events and posts them to the supplied event processor.
 
-##Running the application
+## Running the application
 
 Running the application will generate the event processor and after about 5 seconds, the following will be output to the console:
 
