@@ -63,7 +63,9 @@ A complete unit test is shown below that validates the behaviour of the event pr
 
 Events are sent to the processor under test with the onEvent method e.g.`onEvent(new Trade("EURUSD", 5_000))`. A data driven clock can be adjusted in the test using the `tick("new time")` method to simulate the passing of time.
 
-The "top3" node can be accessed using the id set in the bulder method, with: `WrappedList<Tuple<String, Number>> top3 = getField("top3")`. Normal Junit asserts can be used to validate the expected behavior of the processor by assering the state of a node.
+A reference to the "top3" node is gained using the id set in the bulder method, with: `WrappedList<Tuple<String, Number>> top3 = getField("top3")`. 
+
+Normal Junit asserts validate the expected behavior of the processor by assering the state of a node.
 
 ```java
 public class TradeMonitorTest extends BaseSepInprocessTest {
