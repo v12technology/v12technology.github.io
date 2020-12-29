@@ -20,19 +20,21 @@ Fluxtion integrates unit testing into the developer workflow as follows:
 Add the fluxtion test jar to the project and Junit 4 dependency.
 
 ```xml
-<dependency>
-  <groupId>com.fluxtion</groupId>
-  <artifactId>generator</artifactId>
-  <type>test-jar</type>
-  <scope>test</scope>
-  <version>${project.version}</version>
-</dependency>
-<dependency>
-  <groupId>junit</groupId>
-  <artifactId>junit</artifactId>
-  <version>4.13.1</version>
-  <scope>test</scope>
-</dependency>
+<dependencies>
+  <dependency>
+    <groupId>com.fluxtion</groupId>
+    <artifactId>generator</artifactId>
+    <type>test-jar</type>
+    <scope>test</scope>
+    <version>${project.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.13.1</version>
+    <scope>test</scope>
+  </dependency>
+</dependencies>
 ```
 
 ### 2. Introduce builder method
