@@ -5,7 +5,7 @@ nav_order: 2
 published: true
 ---
 # Introduction
-This example processes a stream of trade events, every second printing out the three most active stocks for the previous five seconds. An understanding of Java and maven is required, the example is located [here](https://github.com/v12technology/fluxtion/tree/2.10.11/examples/quickstart/lesson-1).
+This example processes a stream of trade events, every second printing out the three most active currency pairs for the previous five seconds. An understanding of Java and maven is required, the example is located [here](https://github.com/v12technology/fluxtion/tree/2.10.11/examples/quickstart/lesson-1).
 ## Development process
 Building a Fluxtion application requires three steps
 1. Create a maven project with the required dependencies. 
@@ -133,4 +133,4 @@ Most active ccy pairs in past 5 seconds:
 	 1. USDMXN - 2262 trades
 	 2. EURGBP - 2018 trades
 	 3. EURUSD - 2002 trades
-``` 
+```
