@@ -82,10 +82,8 @@ public static String formatTradeList(List<Tuple<String, Number>> trades) {
 @AllArgsConstructor
 @NoArgsConstructor
 public static class Trade {
-
   private String symbol;
   private double amount;
-
 }
 ```
 
@@ -115,7 +113,6 @@ public class TradeGenerator {
             Thread.sleep(random.nextInt(10) + 10);
         }
     }
-
 }
 ```
 The utility method above generates random currency pair trade events and posts them to the supplied event processor.
