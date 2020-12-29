@@ -89,15 +89,17 @@ Define the procesing using Fluxtin streaming api.
     }
 ```
 
-- Line 2 creates an aggregate sum of the trade amount, grouped by symbol name
-- Line 3 defines a sliding window, publishing every second with a total window size of 5 seconds
-- Line 4 applies a comparator function to the cumulative sum and then reverses the sort order
-- Line 5 Filters the list of trades to the top 3 by volume
-- Line 6 logs the result of filtered list every publish
+- Line 2 Creates an event processor if one cannot be found on the class path for this builder
+- Line 3 Creates an aggregate sum of the trade amount, grouped by symbol name
+- Line 4 Defines a sliding window, publishing every second with a total window size of 5 seconds
+- Line 5 Applies a comparator function to the cumulative sum and then reverses the sort order
+- Line 6 Filters the list of trades to the top 3 by volume
+- Line 7 Applies a mapping function to pretty print the filtered list of trades
+- Line 8 Logs the pretty print function on every bucket expiry after first 
 
 ### 3. Application integration
 
-Fluxtion provides a pipeline abstraction to feed events from a source into an event processor. In this case a manually injecting event source is used to feed Trade events into the pipeine.
+An application must feed events into a Fluxtion generated event processor for processing. All Fluxtion event processors implement the [StaticEventProcessor](https://github.com/v12technology/fluxtion/blob/develop/api/src/main/java/com/fluxtion/api/StaticEventProcessor.java). The application instantiates the event processor and invokes StaticEVentProcessor#onEvent to post an event
 
 ```java
 public class TradeGenerator {
@@ -115,8 +117,4 @@ public class TradeGenerator {
 
 }
 ```
--  line 1 creates a trade injector that pushes events into a pipeline programmatically
--  line 3 initialises a flow with the trade injector as an event source
--  line 4 adds fluxtion event processor as a pipeline stage
--  line 5 starts the pipeline, builds the processing logic during initialisation phase
--  line 7-17 generate random trade events and publish to pipeline for processing
+The utility method above generates random currency pair trade events
