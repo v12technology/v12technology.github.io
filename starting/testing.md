@@ -8,7 +8,7 @@ published: true
 
 # Introduction
 
-Unit testing of any system is critical. The previous example creates an event processor at runtime, but applies no tests. This example demonstrates how to write unit tests that validate event processing logic. Fluxtion provides Junit utilities for generating and testing event processors.
+Unit testing of any system is critical. The previous example creates an event processor at runtime, but applies no tests. This example demonstrates how to write unit tests that validate event processing logic. Fluxtion provides Junit utilities for generating and testing event processors. The example is located [here](https://github.com/v12technology/fluxtion/tree/master/examples/quickstart/lesson-2).
 
 ## Testing process
 Fluxtion integrates unit testing into the developer workflow as follows:
@@ -54,4 +54,77 @@ public class TradeMonitor {
     }
   ...
   }
+```
+
+### 3. Write Junit test case
+A complete unit test is shown below that validates the behaviour of the event processor. The processor is constructed in the test by supplying the builder method to the super class with `sep(TradeMonitor::build)`
+
+Events are sent to constructed event processor with the onEvent method e.g.`onEvent(new Trade("EURUSD", 5_000))`. A data driven clock can be adjusted in the test using the tick method to simulate the passing of time.
+
+The "top3" node can be accessed using the id set in the bulder method, with: `WrappedList<Tuple<String, Number>> top3 = getField("top3")`. Normal Junit asserts can be used to validate the expected beb=havior of the processor by asseting the state of a node after processing events or changing the time.
+
+```java
+public class TradeMonitorTest extends BaseSepInprocessTest {
+
+    @Rule
+    public SystemOutResource sysOut = new SystemOutResource();
+
+    String window1_log = "Most active ccy pairs in past 5 seconds:\n"
+        + "	 1. EURUSD - 5150 trades\n"
+        + "	 2. USDCHF - 500 trades\n"
+        + "	 3. EURJPY - 100 trades";
+    String window2_sysout = "Most active ccy pairs in past 5 seconds:\n"
+        + "	 1. USDCHF - 500 trades\n"
+        + "	 2. EURUSD - 150 trades\n"
+        + "	 3. EURJPY - 100 trades";
+    
+    @Test
+    public void testTradeMonitor() {
+        sep(TradeMonitor::build);
+        sysOut.clear();
+        tick(1);
+        onEvent(new Trade("EURUSD", 5_000));
+        tick(1200);
+        onEvent(new Trade("EURUSD", 150));
+        onEvent(new Trade("EURJPY", 100));
+        tick(2100);
+        onEvent(new Trade("USDCHF", 500));
+        tick(4000);
+        onEvent(new Trade("GBPUSD", 25));
+        WrappedList<Tuple<String, Number>> top3 = getField("top3");
+        assertThat(top3.size(), is(0));
+
+        //advance to 5 seconds
+        tick(5500);
+        top3 = getField("top3");
+        assertThat(top3.size(), is(3));
+        assertThat(top3.get(0).getKey(), is("EURUSD"));
+        assertThat(top3.get(0).getValue(), is(5_150d));
+        assertThat(top3.get(1).getKey(), is("USDCHF"));
+        assertThat(top3.get(1).getValue(), is(500d));
+        assertThat(top3.get(2).getKey(), is("EURJPY"));
+        assertThat(top3.get(2).getValue(), is(100d));
+        assertThat(sysOut.asString().trim(), is(window1_log));
+
+        //advance time but within a bucket, nothing will happen inbetween buckets
+        sysOut.clear();
+        tick(5999);
+        top3 = getField("top3");
+        assertThat(top3.size(), is(3));
+        assertThat(sysOut.asString().trim(), is(""));
+
+        //advance to new bucket will removes first EURUSD trade and triggers resort
+        sysOut.clear();
+        tick(6000);
+        top3 = getField("top3");
+        assertThat(top3.size(), is(3));
+        assertThat(top3.get(0).getKey(), is("USDCHF"));
+        assertThat(top3.get(0).getValue(), is(500d));
+        assertThat(top3.get(1).getKey(), is("EURUSD"));
+        assertThat(top3.get(1).getValue(), is(150d));
+        assertThat(top3.get(2).getKey(), is("EURJPY"));
+        assertThat(top3.get(2).getValue(), is(100d));
+        assertThat(sysOut.asString().trim(), is(window2_sysout));
+    }
+}
 ```
