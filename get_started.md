@@ -117,4 +117,4 @@ public class TradeGenerator {
 
 }
 ```
-The utility method above generates random currency pair trade events
+The utility method above generates random currency pair trade events and posts them to the supplied event processor.
