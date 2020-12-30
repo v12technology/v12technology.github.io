@@ -120,7 +120,7 @@ The utility method above generates random currency pair trade events and posts t
 
 Running the application will generate the event processor and after about 5 seconds, the following will be output to the console:
 
-```console
+{% highlight console %}
 Most active ccy pairs in past 5 seconds:
 	 1. EURGBP - 2390 trades
 	 2. USDMXN - 2164 trades
@@ -133,4 +133,4 @@ Most active ccy pairs in past 5 seconds:
 	 1. USDMXN - 2262 trades
 	 2. EURGBP - 2018 trades
 	 3. EURUSD - 2002 trades
-```
+{% endhighlight %}
