@@ -110,14 +110,14 @@ public class TradeMonitorTest extends BaseSepInprocessTest {
         assertThat(top3.get(2).getValue(), is(100d));
         assertThat(sysOut.asString().trim(), is(window1_log));
 
-        //advance time but within a bucket, nothing will happen inbetween buckets
+        //advance time but within a bucket, nothing will happen unless a bucket expires
         sysOut.clear();
         tick(5999);
         top3 = getField("top3");
         assertThat(top3.size(), is(3));
         assertThat(sysOut.asString().trim(), is(""));
 
-        //advance to new bucket will removes first EURUSD trade and triggering a new top 3
+        //advance time expires bucket, removes first EURUSD trade triggering a publish with new top 3
         sysOut.clear();
         tick(6000);
         top3 = getField("top3");
