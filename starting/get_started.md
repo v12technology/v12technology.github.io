@@ -20,11 +20,12 @@ Building a Fluxtion application requires three steps
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.fluxtion.example</groupId>
     <artifactId>quickstart.lesson-1</artifactId>
-    <version>2.10.10-SNAPSHOT</version>
+    <version>2.10.13-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>fluxtion :: quickstart :: lesson-1</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.deploy.skip>true</maven.deploy.skip>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -35,19 +36,9 @@ Building a Fluxtion application requires three steps
             <version>1.18.12</version>
         </dependency>
         <dependency>
-            <groupId>com.fluxtion.integration</groupId>
-            <artifactId>fluxtion-integration</artifactId>
+            <groupId>com.fluxtion.extension</groupId>
+            <artifactId>fluxtion-streaming-builder</artifactId>
             <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.13.3</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>2.13.3</version>
         </dependency>
     </dependencies>
 </project>
@@ -118,7 +109,8 @@ public class TradeGenerator {
 The utility method above generates random currency pair trade events and posts them to the supplied event processor.
 ## Running the application
 
-Running the application will generate the event processor and after about 5 seconds, the following will be output to the console:
+Running the application will generate the event processor and then publish Trade events to the processor. 
+After about 5 seconds, the following will be output to the console:
 
 {% highlight console %}
 Most active ccy pairs in past 5 seconds:

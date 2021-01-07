@@ -34,11 +34,18 @@ Add the fluxtion test jar to the project and Junit 4 dependency.
     <version>4.13.1</version>
     <scope>test</scope>
   </dependency>
+  <dependency>
+      <groupId>org.hamcrest</groupId>
+      <artifactId>hamcrest-all</artifactId>
+      <version>1.3</version>
+      <scope>test</scope>
+  </dependency>
 </dependencies>
 ```
 
 ### 2. Introduce builder method
-The app is refactored to separate processor consruction logic into a builder method. To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a processor node by id, with `getField("name")`.
+The app is refactored to separate processor consruction logic into a builder method. The builder method can be tested directly in a unit test.
+To help testing a node can be given a unique identifier by appending  `.id("name")` during construction. The BaseSepInprocessTest provides helper methods to access a processor node by id, with `getField("name")`.
 ```java
 public class TradeMonitor {
 
