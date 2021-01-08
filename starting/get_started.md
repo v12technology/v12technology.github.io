@@ -31,21 +31,22 @@ Building a Fluxtion application requires three steps
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.12</version>
-        </dependency>
-        <dependency>
             <groupId>com.fluxtion.extension</groupId>
             <artifactId>fluxtion-streaming-builder</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
         </dependency>
     </dependencies>
 </project>
 ```
 
 ### 2. Fluxtion stream processing logic
-Define the procesing using Fluxtin streaming api. 
+Define the procesing using `reuseOrBuild` function from the Fluxtin streaming api to generate an event processor. 
+This processor is passed to a sample generator which pushes random trade events into the processor.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -106,6 +107,7 @@ public class TradeGenerator {
   }
 }
 ```
+
 The utility method above generates random currency pair trade events and posts them to the supplied event processor.
 ## Running the application
 
