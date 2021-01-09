@@ -45,8 +45,9 @@ Building a Fluxtion application requires three steps
 ```
 
 ### 2. Fluxtion stream processing logic
-Define the procesing using `reuseOrBuild` function from the Fluxtin streaming api to generate an event processor. 
-This processor is passed to a sample generator which pushes random trade events into the processor.
+Procesing logic is expressed using Fluxtin streaming api. The building logic is passed to the `reuseOrBuild` method which generates and an event processor instance.
+
+The processor instance is passed to a sample trade soure which pushes random trade events into the processor.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -89,7 +90,7 @@ public static class Trade {
 
 ### 3. Application integration
 
-An application must feed events into a Fluxtion generated event processor for processing. All Fluxtion event processors implement the [StaticEventProcessor](https://github.com/v12technology/fluxtion/blob/develop/api/src/main/java/com/fluxtion/api/StaticEventProcessor.java). The application instantiates the event processor and invokes `processor.onEvent(event)` to post an event
+An application feeds events into a Fluxtion generated event processor to execute business logic. All Fluxtion event processors implement the [StaticEventProcessor](https://github.com/v12technology/fluxtion/blob/develop/api/src/main/java/com/fluxtion/api/StaticEventProcessor.java) interface. To post an event the application invokes `processor.onEvent(event)` on the processor instance.
 
 ```java
 public class TradeGenerator {
@@ -108,7 +109,7 @@ public class TradeGenerator {
 }
 ```
 
-The utility method above generates random currency pair trade events and posts them to the supplied event processor.
+The method above generates random currency pair trade events and posts them to the supplied event processor.
 ## Running the application
 
 Running the application will generate the event processor and then publish Trade events to the processor. 
