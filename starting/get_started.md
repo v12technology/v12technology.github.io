@@ -45,9 +45,7 @@ Building a Fluxtion application requires three steps
 ```
 
 ### 2. Fluxtion stream processing logic
-Procesing logic is expressed using Fluxtin streaming api. The building logic is passed to the `reuseOrBuild` method which generates and an event processor instance.
-
-The processor instance is passed to a sample trade soure which pushes random trade events into the processor.
+Procesing logic is expressed using Fluxtin streaming api. The building logic is passed to the `reuseOrBuild` method which generates an event processor instance.
 
 ```java
 public static void main(String[] args) throws Exception {
@@ -109,11 +107,12 @@ public class TradeGenerator {
 }
 ```
 
-The method above generates random currency pair trade events and posts them to the supplied event processor.
+The `publishTestData` method generates random currency pair trade events and posts them to the supplied event processor.
+
 ## Running the application
 
-Running the application will generate the event processor and then publish Trade events to the processor. 
-After about 5 seconds, the following will be output to the console:
+Running the application will generate the event processor and then publish Trade events to the processor instance. 
+After about 5 seconds output to the console will be similar to that below. After the first 5 seconds an update will be printed every second.
 
 {% highlight console %}
 Most active ccy pairs in past 5 seconds:
