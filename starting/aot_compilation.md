@@ -61,6 +61,7 @@ The scan goal searches the project code base for any builder methods that have t
 ```
 
 Running maven with the fluxtion plugin scan goal will generate the event processor at buildtime, with this command:
+
 {% highlight console %}
 mvn install -Pfluxtion-generate
 {% endhighlight %}
