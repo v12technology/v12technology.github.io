@@ -61,10 +61,8 @@ The scan goal searches the project code base for any builder methods that have t
 ```
 
 Running maven with the fluxtion plugin scan goal will generate the event processor at buildtime, with this command:
-
-```console
+{% highlight console %}
 mvn install -Pfluxtion-generate
-```
+{% endhighlight %}
 
-After the build completes generated artefacts are located in the package directory provided in the annotation. See [here]{https://github.com/v12technology/fluxtion/tree/master/examples/quickstart/lesson-3/src/main/java/com/fluxtion/example/quickstart/lesson3/generated} for an example of the output. 
-
+After the build completes generated artefacts are located in the package directory provided in the annotation. See [here]{https://github.com/v12technology/fluxtion/tree/master/examples/quickstart/lesson-3/src/main/java/com/fluxtion/example/quickstart/lesson3/generated} for an example of the output.
