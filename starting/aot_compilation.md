@@ -11,9 +11,9 @@ Fluxtion provides a maven plugin that can generate an event processor as part of
 
 ## Development process
 To statically generate the event processor at buildtime three steps are required
-1. Add the Fluxtion maven plugin to the build
-1. Annotate any Fluxtion builder methods with `@SepBuilder` providing the fully qualified name of the generated processor as a parameter
-1. Remove any calls to dynamically build a processor at runtime and use the fqn above to instantiate a statically generated processor
+1. Add the Fluxtion maven plugin to the build.
+1. Annotate any Fluxtion builder methods with `@SepBuilder` providing the fully qualified name of the generated processor as a parameter.
+1. Remove any calls to dynamically build a processor at runtime and use the fqn above to instantiate a statically generated processor, including test cases.
 
 ### 1. Maven Build
 Add the fluxtion maven plugin using the scan goal. It is usally better to add the generation as a maven profile as once the solution is generated then the build should be stable. Skipping tests for the generation phase is usually preferable.
