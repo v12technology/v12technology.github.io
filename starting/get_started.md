@@ -116,6 +116,7 @@ Running the application will generate the event processor and then publish Trade
 After about 5 seconds output to the console will be similar to that below. After the first 5 seconds an update will be printed every second.
 
 {% highlight console %}
+mvn exec:java -Dexec.mainClass="com.fluxtion.example.quickstart.lesson1.TradeMonitor"
 Most active ccy pairs in past 5 seconds:
 	 1. EURGBP - 2390 trades
 	 2. USDMXN - 2164 trades
