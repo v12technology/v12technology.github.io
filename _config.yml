@@ -16,4 +16,4 @@ kramdown:
     block:
       line_numbers: true
       
-fluxver: 2.10.12
+fluxver: 2.10.13
