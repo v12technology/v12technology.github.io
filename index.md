@@ -22,8 +22,6 @@ Fluxtion provides a familiar stream like api for the developer to work with. Dat
 
 A full set of tools for debugging, tracing, auding and visualisation are provided to reduce development and support costs.
 
--  current release version: {{ fluxtion.version }}
--  current release version: {{ site.fluxver }}
--  current release version: {{ flux.ver }}
--  current release version: {{ fluxlocalver }}
--  current release version: {{ page.fluxlocalver }}
+
+-  current release version (site.fluxver) : {{ site.fluxver }}
+-  current release version (page.fluxlocalver): {{ page.fluxlocalver }}
