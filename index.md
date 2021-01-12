@@ -3,6 +3,7 @@ title: Home
 has_children: false
 nav_order: 1
 published: true
+fluxlocal.ver: 2.10.13
 ---
 
 # Introduction
@@ -21,5 +22,7 @@ Fluxtion provides a familiar stream like api for the developer to work with. Dat
 
 A full set of tools for debugging, tracing, auding and visualisation are provided to reduce development and support costs.
 
-current release version: {{fluxtion.version}}
-current release version: {{ site.flux.ver }}
+-  current release version: {{ fluxtion.version }}
+-  current release version: {{ site.flux.ver }}
+-  current release version: {{ flux.ver }}
+-  current release version: {{ fluxlocal.ver }}
