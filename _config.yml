@@ -23,4 +23,4 @@ defaults:
     values:
       fluxtion.version: "2.10.12"   
       
-flux.ver: 2.10.12
+fluxver: 2.10.12
