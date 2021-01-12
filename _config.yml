@@ -16,11 +16,4 @@ kramdown:
     block:
       line_numbers: true
       
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      fluxtion.version: "2.10.12"   
-      
 fluxver: 2.10.12
