@@ -22,3 +22,5 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       fluxtion.version: "2.10.12"   
+      
+flux.ver: 2.10.12
